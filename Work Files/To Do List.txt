@@ -1,0 +1,27 @@
+===============================================================
+// TO DO LIST
+===============================================================
+
+# Create a scriptable object for each segment category,
+  one for WaveSettings and one for AsteroidSettings
+  Then add these to the segment
+  
+ 
+# Create a serializable sQueue<T>
+- Create a property drawer for the linked list items as
+  a reorderable list so I can edit it easily in the inspector
+
+
+# Create a SegmentHandler that fetches that contains:
+- uQueue of SegmentInfos
+
+- IEnumerator Start method for fetching the first segment
+  from the uQueue and then do the asteroid spawning
+  
+  
+# Create a SegmentHandler editor that:
+- Displays the settings of the assigned segment info
+  underneath its object field, so I can edit them directly
+  in the segment handler inspector
+
+- 
