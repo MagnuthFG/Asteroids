@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25c9cdedc7d61ed42862872bb43c934a, type: 3}
-  m_Name: Asteroid Settings 2
+  m_Script: {fileID: 11500000, guid: b3ec66242da74ee44b44ec010f3e5ca7, type: 3}
+  m_Name: Asteroid Small Fast 1
   m_EditorClassIdentifier: 
-  _minMaxAsteroidCount: {x: 1, y: 1}
-  _minMaxAsteroidSpeed: {x: 1, y: 1}
-  _asteroidPrefabs: []
+  _minMaxForce: {x: 4, y: 6}
+  _minMaxSize: {x: 0.25, y: 0.5}
+  _minMaxTorque: {x: 0.1, y: 0.5}

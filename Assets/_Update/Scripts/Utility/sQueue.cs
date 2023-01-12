@@ -1,6 +1,6 @@
+using SS = System.SerializableAttribute;
 using SF = UnityEngine.SerializeField;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Magnuth
@@ -8,70 +8,61 @@ namespace Magnuth
     /// <summary>
     /// Serializable Queueu
     /// </summary>
-    public class sQueue<T> : Queue<T>, ISerializationCallbackReceiver
+    [SS] public class sQueue<T> : Queue<T>, ISerializationCallbackReceiver
     {
-        [SF] private LinkedList<T> _items = null;
+        [SF] private List<T> _items = new List<T>();
+        private bool _object = false;
+
+        /// <summary>
+        /// Initialises the Queue
+        /// </summary>
+        public sQueue() : base(){
+            _object = typeof(T) == typeof(Object) ||
+                      typeof(T).IsSubclassOf(typeof(Object));
+        }
 
         /// <summary>
         /// Add to queue
         /// </summary>
         public new void Enqueue(T item){
-            _items.AddLast(item);
-        }
+            if (!IsValid(item)) return;
 
-        /// <summary>
-        /// Remove from queue
-        /// </summary>
-        public new T Dequeue(){
-            var item = _items.First;
+            base.Enqueue(item);
 
-            _items.RemoveFirst();
-            return item.Value;
+            _items.Add(item);
         }
 
         /// <summary>
         /// Saves queue to list
         /// </summary>
-        public void OnAfterDeserialize(){
+        public void OnBeforeSerialize(){
             _items.Clear();
 
-            if (typeof(T) == typeof(Object) ||
-                typeof(T).IsSubclassOf(typeof(Object))){
+            foreach (var item in this){
+                if (!IsValid(item)) continue;
 
-                foreach (var element in this.Where(element => element != null)){
-                    _items.AddLast(element);
-                }
-
-            } else {
-                foreach (var element in this){
-                    _items.AddLast(element);
-                }
+                _items.Add(item);
             }
         }
 
         /// <summary>
         /// Loads queue from list
         /// </summary>
-        public void OnBeforeSerialize(){
-            var node = _items.First;
+        public void OnAfterDeserialize(){
             Clear();
 
-            if (typeof(T) == typeof(Object) ||
-                typeof(T).IsSubclassOf(typeof(Object))){
+            foreach (var item in _items){
+                if (!IsValid(item)) continue;
 
-                while(node.Next != null){
-                    if (node.Value != null){ 
-                        Enqueue(node.Value);
-                    }
-                    node = node.Next;
-                }
-
-            } else {
-                while (node.Next != null){
-                    Enqueue(node.Value);
-                    node = node.Next;
-                }
+                base.Enqueue(item);
             }
+        }
+
+        /// <summary>
+        /// Returns if item is not null
+        /// </summary>
+        private bool IsValid(T item){
+            return !_object || (_object && item != null);
         }
     }
 }

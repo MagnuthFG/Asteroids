@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dca39654208d9874f982620add895da4, type: 3}
-  m_Name: Segment 3
+  m_Script: {fileID: 11500000, guid: 3ce52cc2737d3a6489265ffa3ddda0f7, type: 3}
+  m_Name: A-Wave Long Slow 1
   m_EditorClassIdentifier: 
-  _waves: {fileID: 11400000, guid: 800f3d545294ee04f913ad0e38536910, type: 2}
-  _asteroids: {fileID: 11400000, guid: 9068f392c88f5bd4290ba7548b7c3e2b, type: 2}
+  _waveCount: 4
+  _waveLength: 10

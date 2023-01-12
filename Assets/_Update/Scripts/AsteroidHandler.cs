@@ -3,13 +3,15 @@ using UnityEngine;
 
 using Random = System.Random;
 using System.Collections;
+using UnityEditor;
 
 namespace Magnuth
 {
-    [AddComponentMenu("Magnuth/Gameplay Handler")]
-    public class GameplayHandler : MonoBehaviour
+    [AddComponentMenu("Magnuth/Asteroid Handler")]
+    public class AsteroidHandler : MonoBehaviour
     {
-        [SF] private sQueue<SegmentSettings> _segments = null;
+        [SF] private float _spawnRadius = 10f;
+        [SF] private sQueue<SegmentSettings> _segments = new();
 
 // PROPERTIES
 
@@ -38,15 +40,18 @@ namespace Magnuth
         private Random InitRandom(){
             var date = System.DateTime.Now;
             var seed = $"{date.Year}{date.Hour}{date.Minute}";
+            
             return new Random(int.Parse(seed));
         }
 
 // SEGMENT HANDLING
 
         /// <summary>
-        /// Executes the gameplay for each segment
+        /// Executes the gameplay for this segment
         /// </summary>
         private IEnumerator RunSegment(SegmentSettings segment, Random random){
+            if (segment == null) yield break;
+            
             var wave = 0;
 
             while (++wave < segment.WaveCount){
@@ -69,7 +74,47 @@ namespace Magnuth
                 segment.MinMaxAsteroidCount.y
             );
 
+            var spacing  = 360f / count;
+            var angleRad = Mathf.Deg2Rad * spacing;
 
+            // add random start angle so it doesn't
+            // start at 0 all the time
+            for (int i = 0; i < count; i++){
+                var index = random.Next(
+                    0, segment.AsteroidPrefabs.Length
+                );
+
+                var prefab   = segment.AsteroidPrefabs[index];
+                var settings = segment.AsteroidSettings[index];
+                var asteroid = Instantiate(prefab);
+
+                // Redo this! Assign settings from here instead
+                asteroid.Settings = settings;
+
+                asteroid.transform.position = new Vector3(
+                    Mathf.Cos(angleRad * i),
+                    Mathf.Sin(angleRad * i),
+                    0f
+                );
+            }
         }
+
+// DEBUGGING
+#if UNITY_EDITOR
+
+        /// <summary>
+        /// Draws the spawn radius circle
+        /// </summary>
+        private void OnDrawGizmosSelected(){
+            Handles.color = Color.white;
+
+            Handles.DrawWireDisc(
+                transform.position, 
+                Vector3.forward, 
+                _spawnRadius, 2f
+            );
+        }
+
+#endif
     }
 }

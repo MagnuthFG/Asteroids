@@ -2,26 +2,26 @@
 // TO DO LIST
 ===============================================================
 
-# Create a scriptable object for each segment category,
-  one for WaveSettings and one for AsteroidSettings
-  Then add these to the segment
+# Create a property drawer for the sQueue items
+- Have the items be directly under segments drop down
+  and not under items drop down
   
- 
-# Create a serializable sQueue<T>
-- Create a property drawer for the linked list items as
-  a reorderable list so I can edit it easily in the inspector
-
-
-# Create a SegmentHandler that fetches that contains:
-- uQueue of SegmentInfos
-
-- IEnumerator Start method for fetching the first segment
-  from the uQueue and then do the asteroid spawning
+- Fix so I add to the _items list directly but only
+  serialize if the value is not null?
   
-  
-# Create a SegmentHandler editor that:
-- Displays the settings of the assigned segment info
-  underneath its object field, so I can edit them directly
-  in the segment handler inspector
 
-- 
+# Continue on the AsteroidHandler
+- Improve the old Asteroid script so the speed, size and
+  torque is assigned in spawner not in the asteroid class
+  
+- Improve the spawner so that the first spawn angle
+  doesn't always start at 0 but some other angle
+
+- Add a random spawn delay between each asteroid
+  Turn SpawnAsteroid into an IEnumerator
+  
+- Add a random wave count and duration as well
+
+  
+# Improve the look of all interfaces
+- Create a AsteroidHandler editor that ???

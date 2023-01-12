@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25c9cdedc7d61ed42862872bb43c934a, type: 3}
-  m_Name: Asteroid Settings 1
+  m_Name: A-Group SM Fast 1
   m_EditorClassIdentifier: 
-  _minMaxAsteroidCount: {x: 1, y: 1}
-  _minMaxAsteroidSpeed: {x: 1, y: 1}
-  _asteroidPrefabs: []
+  _minMaxAsteroidCount: {x: 4, y: 6}
+  _asteroidSettings:
+  - {fileID: 11400000, guid: 59c69a29673a1fc469d3f38f2d99a579, type: 2}
+  - {fileID: 11400000, guid: c2ea5cbe27caa174db7f17ae69dd0ec1, type: 2}
+  _asteroidPrefabs:
+  - {fileID: 1784223117350305363, guid: 01106835b2bc0e347a3bb06b7544b51a, type: 3}

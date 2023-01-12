@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ce52cc2737d3a6489265ffa3ddda0f7, type: 3}
-  m_Name: Wave Settings 2
+  m_Script: {fileID: 11500000, guid: b3ec66242da74ee44b44ec010f3e5ca7, type: 3}
+  m_Name: Asteroid Medium Slow 1
   m_EditorClassIdentifier: 
-  _waveCount: 1
-  _waveLength: 10
+  _minMaxForce: {x: 2, y: 4}
+  _minMaxSize: {x: 0.5, y: 0.75}
+  _minMaxTorque: {x: 0.1, y: 0.5}

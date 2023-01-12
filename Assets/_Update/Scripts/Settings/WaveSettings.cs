@@ -7,7 +7,7 @@ namespace Magnuth
     /// Gameplay settings for waves/encounters
     /// </summary>
     [CreateAssetMenu(fileName = "Wave Setting",
-     menuName = "Magnuth/Wave Settings", order = 0)]
+     menuName = "Magnuth/Wave Settings", order = 1)]
     public class WaveSettings : ScriptableObject
     {
         [SF] private int   _waveCount  = 1;
