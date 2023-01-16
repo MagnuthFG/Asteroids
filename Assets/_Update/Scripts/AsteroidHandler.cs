@@ -1,17 +1,18 @@
 using SF = UnityEngine.SerializeField;
-using UnityEngine;
-
 using Random = System.Random;
 using System.Collections;
 using UnityEditor;
+using UnityEngine;
+using Asteroids;
 
 namespace Magnuth
 {
     [AddComponentMenu("Magnuth/Asteroid Handler")]
     public class AsteroidHandler : MonoBehaviour
     {
+        [Header("Handler Settings")]
         [SF] private float _spawnRadius = 10f;
-        [SF] private sQueue<SegmentSettings> _segments = new();
+        [Space, SF] private sQueue<SegmentSettings> _segments = new();
 
 // PROPERTIES
 
@@ -74,29 +75,106 @@ namespace Magnuth
                 segment.MinMaxAsteroidCount.y
             );
 
-            var spacing  = 360f / count;
-            var angleRad = Mathf.Deg2Rad * spacing;
+            var spacing   = 360f / count;
+            var angleRad  = Mathf.Deg2Rad * spacing;
+            var offsetRad = Mathf.Deg2Rad * random.Next(-180, 180);
 
-            // add random start angle so it doesn't
-            // start at 0 all the time
             for (int i = 0; i < count; i++){
                 var index = random.Next(
                     0, segment.AsteroidPrefabs.Length
                 );
 
-                var prefab   = segment.AsteroidPrefabs[index];
-                var settings = segment.AsteroidSettings[index];
-                var asteroid = Instantiate(prefab);
+                var x = Mathf.Cos(offsetRad + angleRad * i) * _spawnRadius;
+                var y = Mathf.Sin(offsetRad + angleRad * i) * _spawnRadius;
+                var position = new Vector2(x, y);
 
-                // Redo this! Assign settings from here instead
-                asteroid.Settings = settings;
-
-                asteroid.transform.position = new Vector3(
-                    Mathf.Cos(angleRad * i),
-                    Mathf.Sin(angleRad * i),
-                    0f
+                InstantiateAsteroids(
+                    segment.AsteroidPrefabs[index],  position,
+                    segment.AsteroidSettings[index], random
                 );
             }
+        }
+
+        /// <summary>
+        /// Instantiates the asteroid with pseudo-random settings
+        /// </summary>
+        private void InstantiateAsteroids(Asteroid prefab, 
+        Vector2 position, AsteroidSettings settings, Random random){
+            var asteroid = Instantiate(prefab);
+
+            asteroid.Size      = GetSize(settings, random);
+            asteroid.Direction = GetDirection(position, settings, random);
+            asteroid.Force     = GetForce(settings, random);
+            asteroid.Torque    = GetTorque(settings, random);
+
+            asteroid.transform.position = position;
+        }
+
+// SETTINGS HANDLING
+
+        /// <summary>
+        /// Returns the asteroid force
+        /// </summary>
+        private float GetForce(AsteroidSettings settings, Random random){
+            return Mathf.Lerp(
+                settings.MinMaxForce.x,
+                settings.MinMaxForce.y,
+                (float)random.NextDouble()
+            );
+        }
+
+        /// <summary>
+        /// Returns the asteroid torque
+        /// </summary>
+        private float GetTorque(AsteroidSettings settings, Random random){
+            return Mathf.Lerp(
+                settings.MinMaxTorque.x,
+                settings.MinMaxTorque.y,
+                (float)random.NextDouble()
+            );
+        }
+
+        /// <summary>
+        /// Returns the asteroid size
+        /// </summary>
+        private Vector2 GetSize(AsteroidSettings settings, Random random){
+            var x = Mathf.Lerp(
+                settings.MinMaxSize.x, 
+                settings.MinMaxSize.y,
+                (float)random.NextDouble()
+            );
+
+            var y = Mathf.Lerp(
+                settings.MinMaxSize.x,
+                settings.MinMaxSize.y,
+                (float)random.NextDouble()
+            );
+
+            return new Vector2(x, y);
+        }
+
+        /// <summary>
+        /// Returns the asteroid direction
+        /// </summary>
+        private Vector2 GetDirection(Vector2 position, AsteroidSettings settings, Random random){
+            var x = Mathf.Lerp(
+                settings.MinMaxAccuracy.x,
+                settings.MinMaxAccuracy.y, 
+                (float)random.NextDouble()
+            );
+
+            var y = Mathf.Lerp(
+                settings.MinMaxAccuracy.x,
+                settings.MinMaxAccuracy.y,
+                (float)random.NextDouble()
+            );
+
+            var target = new Vector2(
+                Mathf.Lerp(-x, x, (int)random.NextDouble()),
+                Mathf.Lerp(-y, y, (int)random.NextDouble())
+            );
+
+            return (target - position).normalized;
         }
 
 // DEBUGGING

@@ -15,3 +15,4 @@ MonoBehaviour:
   _minMaxForce: {x: 2, y: 4}
   _minMaxSize: {x: 0.5, y: 0.75}
   _minMaxTorque: {x: 0.1, y: 0.5}
+  _minMaxAccuracy: {x: 1, y: 2}

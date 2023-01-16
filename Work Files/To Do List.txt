@@ -2,21 +2,7 @@
 // TO DO LIST
 ===============================================================
 
-# Create a property drawer for the sQueue items
-- Have the items be directly under segments drop down
-  and not under items drop down
-  
-- Fix so I add to the _items list directly but only
-  serialize if the value is not null?
-  
-
 # Continue on the AsteroidHandler
-- Improve the old Asteroid script so the speed, size and
-  torque is assigned in spawner not in the asteroid class
-  
-- Improve the spawner so that the first spawn angle
-  doesn't always start at 0 but some other angle
-
 - Add a random spawn delay between each asteroid
   Turn SpawnAsteroid into an IEnumerator
   
@@ -24,4 +10,6 @@
 
   
 # Improve the look of all interfaces
-- Create a AsteroidHandler editor that ???
+- Create an editor for SegmentSettings that
+  shows the settings for the wave and group
+  underneath each serialized property

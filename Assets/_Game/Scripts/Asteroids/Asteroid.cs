@@ -25,73 +25,85 @@ namespace Asteroids
         //[SerializeField] private Transform _shape;
         #endregion
 
-        public AsteroidSettings Settings = null;
+        [SF] private Transform _body = null;
         [SF] private ScriptableEventInt _onDestroyed = null;
 
         private int     _instanceID = -1;
-        private Vector3 _direction  = Vector3.zero;
-
-        private Transform   _transform = null;
+        private Vector2 _direction  = Vector2.zero;
         private Rigidbody2D _rigidbody = null;
 
         private const string LASER_TAG = "Laser";
+
+// SETTINGS
+
+        public float Force {
+            get { return _rigidbody.totalTorque; }
+            set { _rigidbody.AddForce(_direction * value, ForceMode2D.Impulse); }
+        }
+
+        public float Torque {
+            get { return _rigidbody.totalTorque; }
+            set { _rigidbody.AddTorque(value, ForceMode2D.Impulse); }
+        }
+
+        public Vector2 Direction {
+            get { return _direction;  }
+            set { _direction = value; }
+        }
+
+        public Vector2 Size {
+            get { return _body.localScale;  }
+            set { _body.localScale = value; }
+        }
 
 // INITIALISATION
 
         private void Awake(){
             _rigidbody  = GetComponent<Rigidbody2D>();
             _instanceID = GetInstanceID();
-            _transform  = transform;
         }
 
-        private void Start(){
-            SetDirection();
-            AddForce();
-            AddTorque();
-            SetSize();
-        }
-        
+        #region OLD CODE
+        //private void Start(){
+        //    SetDirection();
+        //    AddForce();
+        //    AddTorque();
+        //    SetSize();
+        //}
 
-        private void SetDirection(){
-            var size = new Vector2(3f, 3f);
-            var target = new Vector3(
-                Random.Range(-size.x, size.x),
-                Random.Range(-size.y, size.y)
-            );
+        //private void SetDirection(){
+        //    var size = new Vector2(3f, 3f);
+        //    var target = new Vector3(
+        //        Random.Range(-size.x, size.x),
+        //        Random.Range(-size.y, size.y)
+        //    );
 
-            _direction = (target - transform.position).normalized;
-        }
+        //    _direction = (target - transform.position).normalized;
+        //}
 
-        private void AddForce(){
-            var force = Random.Range(
-                Settings.MinMaxForce.x, 
-                Settings.MinMaxForce.y
-            );
-            _rigidbody.AddForce( _direction * force, ForceMode2D.Impulse);
-        }
+        //private void AddForce(){
+        //    var force = Random.Range(_minForce, _maxForce);
+        //    _rigidbody.AddForce( _direction * force, ForceMode2D.Impulse);
+        //}
 
-        private void AddTorque(){
-            var torque = Random.Range(
-                Settings.MinMaxTorque.x,
-                Settings.MinMaxTorque.y
-            );
+        //private void AddTorque(){
+        //    var torque = Random.Range(_minTorque, _maxTorque);
 
-            var roll = Random.Range(0, 2);
-            if (roll == 0) torque = -torque;
-            
-            _rigidbody.AddTorque(torque, ForceMode2D.Impulse);
-        }
+        //    var roll = Random.Range(0, 2);
+        //    if (roll == 0) torque = -torque;
 
-        private void SetSize(){
-            var size = Random.Range(
-                Settings.MinMaxSize.x,
-                Settings.MinMaxSize.y
-            );
-            _transform.localScale = new Vector3(size, size, 0f);
-        }
+        //    _rigidbody.AddTorque(torque, ForceMode2D.Impulse);
+        //}
+
+        //private void SetSize(){
+        //    var size = Random.Range(_minSize, _maxSize);
+        //    _transform.localScale = new Vector3(size, size, 0f);
+        //}
+        #endregion
 
 // DAMAGE HANDLING
 
+        // This does nothing cause the asteroid has no trigger collider?!
         private void OnTriggerEnter2D(Collider2D other){
             //if (string.Equals(other.tag, "Laser")){
             //   HitByLaser();

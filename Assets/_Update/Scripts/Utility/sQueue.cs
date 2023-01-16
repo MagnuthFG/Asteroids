@@ -6,31 +6,11 @@ using UnityEngine;
 namespace Magnuth
 {
     /// <summary>
-    /// Serializable Queueu
+    /// Serializable Queue
     /// </summary>
     [SS] public class sQueue<T> : Queue<T>, ISerializationCallbackReceiver
     {
         [SF] private List<T> _items = new List<T>();
-        private bool _object = false;
-
-        /// <summary>
-        /// Initialises the Queue
-        /// </summary>
-        public sQueue() : base(){
-            _object = typeof(T) == typeof(Object) ||
-                      typeof(T).IsSubclassOf(typeof(Object));
-        }
-
-        /// <summary>
-        /// Add to queue
-        /// </summary>
-        public new void Enqueue(T item){
-            if (!IsValid(item)) return;
-
-            base.Enqueue(item);
-
-            _items.Add(item);
-        }
 
         /// <summary>
         /// Saves queue to list
@@ -38,9 +18,10 @@ namespace Magnuth
         public void OnBeforeSerialize(){
             _items.Clear();
 
-            foreach (var item in this){
-                if (!IsValid(item)) continue;
+            if (Count == 0) 
+                return;
 
+            foreach (var item in this){
                 _items.Add(item);
             }
         }
@@ -51,18 +32,9 @@ namespace Magnuth
         public void OnAfterDeserialize(){
             Clear();
 
-            foreach (var item in _items){
-                if (!IsValid(item)) continue;
-
-                base.Enqueue(item);
+            for (int i = 0; i < _items.Count; i++){
+                base.Enqueue(_items[i]);
             }
-        }
-
-        /// <summary>
-        /// Returns if item is not null
-        /// </summary>
-        private bool IsValid(T item){
-            return !_object || (_object && item != null);
         }
     }
 }
