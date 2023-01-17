@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="project://database/Assets/_Update/Scripts/Editor/SegmentSettingsEditorTabs.uss?fileID=7433441132597879392&amp;guid=7b66a399357cc2e40b7a825ac49360e6&amp;type=3#SegmentSettingsEditorTabs" />
+    <ui:VisualElement style="flex-grow: 1; width: 100%; height: 100%;">
+        <ui:VisualElement name="Tab-Panel" class="Tab-Panel" style="transform-origin: top;">
+            <ui:Button text="Wave" display-tooltip-when-elided="true" class="Tab Tab-Active" />
+            <ui:Button text="Asteroids" display-tooltip-when-elided="true" class="Tab" />
+        </ui:VisualElement>
+        <ui:ScrollView name="Wave-Panel" class="Tab-Content" style="transform-origin: bottom;" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: A-Group SMB Slow 1
   m_EditorClassIdentifier: 
   _minMaxAsteroidCount: {x: 5, y: 8}
+  _minMaxSpawnDelay: {x: 0.5, y: 1}
   _asteroidSettings:
   - {fileID: 11400000, guid: 62242577a5c34fb4ea37d1e6e185d796, type: 2}
   - {fileID: 11400000, guid: 8cf56aae9ea1fe54e86f26e3af11894b, type: 2}

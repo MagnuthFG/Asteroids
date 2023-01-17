@@ -51,25 +51,25 @@ namespace Magnuth
         /// Executes the gameplay for this segment
         /// </summary>
         private IEnumerator RunSegment(SegmentSettings segment, Random random){
-            if (segment == null) yield break;
+            if (segment == null || random == null) yield break;
+            int count = GetValue(segment.MinMaxWaveCount, random);
+            var wave  = -1;
             
-            var wave = 0;
-
-            while (++wave < segment.WaveCount){
-                SpawnAsteroids(segment, random);
-
-                var delay = new WaitForSeconds(
-                    segment.WaveLength
+            while (++wave < count){
+                yield return SpawnAsteroids(segment, random);
+                
+                var length = (int)GetValue(
+                    segment.MinMaxWaveLength, random
                 );
 
-                yield return delay;
+                yield return new WaitForSeconds(length);
             }
         }
 
         /// <summary>
         /// Spawns the asteroids in the scene
         /// </summary>
-        private void SpawnAsteroids(SegmentSettings segment, Random random){
+        private IEnumerator SpawnAsteroids(SegmentSettings segment, Random random){
             var count = random.Next(
                 segment.MinMaxAsteroidCount.x,
                 segment.MinMaxAsteroidCount.y
@@ -91,6 +91,10 @@ namespace Magnuth
                 InstantiateAsteroids(
                     segment.AsteroidPrefabs[index],  position,
                     segment.AsteroidSettings[index], random
+                );
+
+                yield return new WaitForSeconds(
+                    GetValue(segment.MinMaxAsteroidSpawnDelay, random)
                 );
             }
         }
@@ -116,58 +120,37 @@ namespace Magnuth
         /// Returns the asteroid force
         /// </summary>
         private float GetForce(AsteroidSettings settings, Random random){
-            return Mathf.Lerp(
-                settings.MinMaxForce.x,
-                settings.MinMaxForce.y,
-                (float)random.NextDouble()
-            );
+            return GetValue(settings.MinMaxForce, random);
         }
 
         /// <summary>
         /// Returns the asteroid torque
         /// </summary>
         private float GetTorque(AsteroidSettings settings, Random random){
-            return Mathf.Lerp(
-                settings.MinMaxTorque.x,
-                settings.MinMaxTorque.y,
-                (float)random.NextDouble()
-            );
+            var torque = GetValue(settings.MinMaxTorque, random);
+            
+            var roll = GetValue(Vector2Int.up, random);
+            if (roll == 0) torque = -torque;
+
+            return roll == 0 ? -torque : torque;
         }
 
         /// <summary>
         /// Returns the asteroid size
         /// </summary>
         private Vector2 GetSize(AsteroidSettings settings, Random random){
-            var x = Mathf.Lerp(
-                settings.MinMaxSize.x, 
-                settings.MinMaxSize.y,
-                (float)random.NextDouble()
+            return new Vector2(
+                GetValue(settings.MinMaxSize, random),
+                GetValue(settings.MinMaxSize, random)
             );
-
-            var y = Mathf.Lerp(
-                settings.MinMaxSize.x,
-                settings.MinMaxSize.y,
-                (float)random.NextDouble()
-            );
-
-            return new Vector2(x, y);
         }
 
         /// <summary>
         /// Returns the asteroid direction
         /// </summary>
         private Vector2 GetDirection(Vector2 position, AsteroidSettings settings, Random random){
-            var x = Mathf.Lerp(
-                settings.MinMaxAccuracy.x,
-                settings.MinMaxAccuracy.y, 
-                (float)random.NextDouble()
-            );
-
-            var y = Mathf.Lerp(
-                settings.MinMaxAccuracy.x,
-                settings.MinMaxAccuracy.y,
-                (float)random.NextDouble()
-            );
+            var x = GetValue(settings.MinMaxAccuracy, random);
+            var y = GetValue(settings.MinMaxAccuracy, random);
 
             var target = new Vector2(
                 Mathf.Lerp(-x, x, (int)random.NextDouble()),
@@ -175,6 +158,25 @@ namespace Magnuth
             );
 
             return (target - position).normalized;
+        }
+
+// UTILITY
+
+        /// <summary>
+        /// Returns a random value between min and max
+        /// </summary>
+        private int GetValue(Vector2Int minmax, Random random){
+            return random.Next(minmax.x, minmax.y + 1);
+        }
+
+        /// <summary>
+        /// Returns a random value between min and max
+        /// </summary>
+        private float GetValue(Vector2 minmax, Random random){
+            return Mathf.Lerp(
+                minmax.x, minmax.y,
+                (float)random.NextDouble()
+            );
         }
 
 // DEBUGGING

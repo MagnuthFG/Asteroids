@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minMaxForce: {x: 4, y: 6}
   _minMaxSize: {x: 0.5, y: 0.75}
-  _minMaxTorque: {x: 0.1, y: 0.5}
+  _minMaxTorque: {x: 2, y: 4}
   _minMaxAccuracy: {x: 2, y: 3}

@@ -12,10 +12,14 @@ namespace Magnuth
     public class AsteroidGroupSettings : ScriptableObject
     {
         [SF] private Vector2Int _minMaxAsteroidCount = Vector2Int.one;
+        [SF] private Vector2 _minMaxSpawnDelay = new Vector2(0.5f, 1);
+
         [SF] private AsteroidSettings[] _asteroidSettings = null;
         [SF] private Asteroid[] _asteroidPrefabs = null;
 
-        public Vector2Int MinMaxCount => _minMaxAsteroidCount;
+        public Vector2Int MinMaxCount   => _minMaxAsteroidCount;
+        public Vector2 MinMaxSpawnDelay => _minMaxSpawnDelay;
+
         public AsteroidSettings[] AsteroidSettings => _asteroidSettings;
         public Asteroid[] AsteroidPrefabs => _asteroidPrefabs;
     }

@@ -10,10 +10,10 @@ namespace Magnuth
      menuName = "Magnuth/Wave Settings", order = 1)]
     public class WaveSettings : ScriptableObject
     {
-        [SF] private int   _waveCount  = 1;
-        [SF] private float _waveLength = 10.0f;
+        [SF] private Vector2Int _minMaxWaveCount = new Vector2Int(2, 3);
+        [SF] private Vector2 _minMaxWaveLength   = new Vector2(8f, 10f);
 
-        public int WaveCount    => _waveCount;
-        public float WaveLength => _waveLength;
+        public Vector2Int MinMaxWaveCount => _minMaxWaveCount;
+        public Vector2 MinMaxWaveLength   => _minMaxWaveLength;
     }
 }

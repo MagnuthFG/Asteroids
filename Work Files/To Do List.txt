@@ -2,14 +2,36 @@
 // TO DO LIST
 ===============================================================
 
-# Continue on the AsteroidHandler
-- Add a random spawn delay between each asteroid
-  Turn SpawnAsteroid into an IEnumerator
+# FIX BUGS
+- sQueue throws an ObjectDisposedException, but only
+  sometimes and when its drawn in the inspector 
+  Have to prevent it from serializing while updating
+  Maybe implement a dirty flag check?
   
-- Add a random wave count and duration as well
 
+# Create the segment interfaces
+- On enable get the path to the current segment scriptable object
+  or maybe its editor script? and then sub folder for the editor
+  and uxml file for drawing the look of the inspector
   
-# Improve the look of all interfaces
-- Create an editor for SegmentSettings that
-  shows the settings for the wave and group
-  underneath each serialized property
+- Add a tab for the wave setting and one for asteroid groups
+  
+- Allow to specify a an already existing wave or asteroid
+  group or setting from another segment
+  Have a yellow outline around the property that shows that
+  it is not part of this segment?
+  
+- Allow to create a new wave and asteroid group and remove 
+  existing via an add and remove button and parent them to
+  segment
+  
+  Only display add button if the object field is empty
+  the remove button should be to the right of the object field
+  
+- Display the wave and asteroid group settings underneath
+  each object field
+
+
+# Create an editor for the AndroidHandler that makes it easy
+  to add a new segment to the segment queue
+  Will have to specify which folder to save it in?

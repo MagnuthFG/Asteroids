@@ -16,10 +16,12 @@ namespace Magnuth
 
 // PROPERTIES
 
-        public int   WaveCount  => _waves.WaveCount;
-        public float WaveLength => _waves.WaveLength;
+        public Vector2Int MinMaxWaveCount => _waves.MinMaxWaveCount;
+        public Vector2 MinMaxWaveLength   => _waves.MinMaxWaveLength;
 
-        public Vector2Int MinMaxAsteroidCount => _asteroids.MinMaxCount;
+        public Vector2Int MinMaxAsteroidCount   => _asteroids.MinMaxCount;
+        public Vector2 MinMaxAsteroidSpawnDelay => _asteroids.MinMaxSpawnDelay;
+
         public AsteroidSettings[] AsteroidSettings => _asteroids.AsteroidSettings;
         public Asteroid[] AsteroidPrefabs => _asteroids.AsteroidPrefabs;
     }

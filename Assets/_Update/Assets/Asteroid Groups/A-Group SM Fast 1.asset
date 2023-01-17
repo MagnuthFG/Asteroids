@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: A-Group SM Fast 1
   m_EditorClassIdentifier: 
   _minMaxAsteroidCount: {x: 4, y: 6}
+  _minMaxSpawnDelay: {x: 0.75, y: 1.25}
   _asteroidSettings:
   - {fileID: 11400000, guid: 59c69a29673a1fc469d3f38f2d99a579, type: 2}
   - {fileID: 11400000, guid: c2ea5cbe27caa174db7f17ae69dd0ec1, type: 2}

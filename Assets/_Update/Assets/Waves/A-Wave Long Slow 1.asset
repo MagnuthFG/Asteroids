@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce52cc2737d3a6489265ffa3ddda0f7, type: 3}
   m_Name: A-Wave Long Slow 1
   m_EditorClassIdentifier: 
-  _waveCount: 4
-  _waveLength: 10
+  _minMaxWaveCount: {x: 2, y: 3}
+  _minMaxWaveLength: {x: 8, y: 10}
