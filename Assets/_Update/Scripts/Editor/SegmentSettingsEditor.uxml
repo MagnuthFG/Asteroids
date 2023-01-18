@@ -1,10 +1,25 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
-    <Style src="project://database/Assets/_Update/Scripts/Editor/SegmentSettingsEditorTabs.uss?fileID=7433441132597879392&amp;guid=7b66a399357cc2e40b7a825ac49360e6&amp;type=3#SegmentSettingsEditorTabs" />
-    <ui:VisualElement style="flex-grow: 1; width: 100%; height: 100%;">
-        <ui:VisualElement name="Tab-Panel" class="Tab-Panel" style="transform-origin: top;">
-            <ui:Button text="Wave" display-tooltip-when-elided="true" class="Tab Tab-Active" />
-            <ui:Button text="Asteroids" display-tooltip-when-elided="true" class="Tab" />
+    <Style src="project://database/Assets/_Update/Scripts/Editor/SegmentSettingsEditorTabs.uss?fileID=7433441132597879392&amp;guid=7b66a399357cc2e40b7a825ac49360e6&amp;type=3#SegmentSettingsEditorTabs[UNSUPPORTED_IN_UI_BUILDER]" />
+    <ui:VisualElement style="background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement name="TabPanel" class="Tab-Panel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <ui:VisualElement name="WavesTab" class="Tab-Button Tab-Selected" style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Waves" display-tooltip-when-elided="true" />
+            </ui:VisualElement>
+            <ui:VisualElement name="AsteroidsTab" class="Tab-Button" style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Asteroids" display-tooltip-when-elided="true" />
+            </ui:VisualElement>
         </ui:VisualElement>
-        <ui:ScrollView name="Wave-Panel" class="Tab-Content" style="transform-origin: bottom;" />
+        <ui:ScrollView name="WavesContent" horizontal-scroller-visibility="Hidden" class="Tab-Content">
+            <uie:PropertyField binding-path="_waves" label="Settings" name="WaveSettingsProperty" />
+            <uie:PropertyField name="WaveCountProperty" label="Min Max Count" />
+            <uie:PropertyField label="Min Max Length" name="WaveLengthProperty" />
+            <ui:Button text="Create" display-tooltip-when-elided="true" name="CreateWaveButton" />
+            <ui:Button text="Delete" display-tooltip-when-elided="true" name="DeleteWaveButton" style="display: none; visibility: visible;" />
+        </ui:ScrollView>
+        <ui:ScrollView name="AsteroidsContent" horizontal-scroller-visibility="Hidden" class="Tab-Content" style="visibility: hidden;">
+            <uie:PropertyField binding-path="_asteroids" label="Settings" name="AsteroidGroupProperty" />
+            <ui:Button text="Create" display-tooltip-when-elided="true" name="CreateAsteroidGroupButton" />
+            <ui:Button text="Delete" display-tooltip-when-elided="true" name="DeleteAsteroidGroupButton" style="display: none;" />
+        </ui:ScrollView>
     </ui:VisualElement>
 </ui:UXML>

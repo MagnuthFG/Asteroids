@@ -1,23 +1,82 @@
 .Tab-Panel {
     flex-direction: row;
-    width: 100%;
-    height: 25px;
     align-items: stretch;
-    justify-content: flex-end;
     align-self: auto;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.Tab-Button {
+    width: 50%;
+    align-items: center;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-left-color: rgb(25, 25, 25);
+    border-right-color: rgb(25, 25, 25);
+    border-top-color: rgb(25, 25, 25);
+    border-bottom-color: rgb(25, 25, 25);
+}
+
+.Tab-Button:hover {
+    background-color: var(--unity-colors-button-background-hover_pressed);
+}
+
+.Tab-Button:active {
+    background-color: var(--unity-colors-button-background-pressed);
+}
+
+.Tab-Selected {
+    background-color: var(--unity-colors-button-background);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-left-color: rgb(25, 25, 25);
+    border-right-color: rgb(25, 25, 25);
+    border-top-color: rgb(25, 25, 25);
+    border-bottom-color: var(--unity-colors-button-background);
+}
+
+.Tab-Selected:hover {
+    background-color: var(--unity-colors-button-background);
+}
+
+.Tab-Selected:active {
+    background-color: var(--unity-colors-button-background);
+}
+
+.Tab-Text {
 }
 
 .Tab-Content {
     background-color: var(--unity-colors-button-background);
-    height: 100%;
-}
-
-Button.Tab {
-    height: 100%;
-    width: 49%;
-    background-color: var(--unity-colors-window-background);
-}
-
-Button.Tab-Active {
-    background-color: var(--unity-colors-button-background);
+    border-left-color: rgb(25, 25, 25);
+    border-right-color: rgb(25, 25, 25);
+    border-top-color: rgb(25, 25, 25);
+    border-bottom-color: rgb(25, 25, 25);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    overflow: hidden;
 }

@@ -11,9 +11,9 @@ namespace Magnuth
     public class WaveSettings : ScriptableObject
     {
         [SF] private Vector2Int _minMaxWaveCount = new Vector2Int(2, 3);
-        [SF] private Vector2 _minMaxWaveLength   = new Vector2(8f, 10f);
+        [SF] private Vector2 _minMaxWaveLength = new Vector2(8f, 10f);
 
         public Vector2Int MinMaxWaveCount => _minMaxWaveCount;
-        public Vector2 MinMaxWaveLength   => _minMaxWaveLength;
+        public Vector2 MinMaxWaveLength => _minMaxWaveLength;
     }
 }

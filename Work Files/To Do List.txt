@@ -10,26 +10,21 @@
   
 
 # Create the segment interfaces
-- On enable get the path to the current segment scriptable object
-  or maybe its editor script? and then sub folder for the editor
-  and uxml file for drawing the look of the inspector
-  
-- Add a tab for the wave setting and one for asteroid groups
-  
-- Allow to specify a an already existing wave or asteroid
-  group or setting from another segment
-  Have a yellow outline around the property that shows that
-  it is not part of this segment?
-  
-- Allow to create a new wave and asteroid group and remove 
-  existing via an add and remove button and parent them to
-  segment
-  
-  Only display add button if the object field is empty
-  the remove button should be to the right of the object field
-  
+- Fix so the delete button deletes the assigned asset
+
 - Display the wave and asteroid group settings underneath
-  each object field
+  each object field button (add some extra spacing)
+
+- Have a yellow outline around the object property field
+  that shows if it is not part of this segment?
+  
+
+# Create the wave settings and asteroid group interface 
+- Add string field that when changed renames its asset file
+
+- Add a button for unparenting it from the segment
+
+- Add a button for deleting the asset
 
 
 # Create an editor for the AndroidHandler that makes it easy
