@@ -1,5 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
-    <Style src="project://database/Assets/_Update/Scripts/Editor/SegmentSettingsEditorTabs.uss?fileID=7433441132597879392&amp;guid=7b66a399357cc2e40b7a825ac49360e6&amp;type=3#SegmentSettingsEditorTabs[UNSUPPORTED_IN_UI_BUILDER]" />
+    <Style src="project://database/Assets/_Update/Scripts/Editor/Style_Tabs.uss?fileID=7433441132597879392&amp;guid=7b66a399357cc2e40b7a825ac49360e6&amp;type=3#Style_Tabs" />
+    <Style src="project://database/Assets/_Update/Scripts/Editor/Style_Content.uss?fileID=7433441132597879392&amp;guid=836e4f3bb448c9545aa3b3668f557c64&amp;type=3#Style_Content" />
     <ui:VisualElement style="background-color: rgba(0, 0, 0, 0);">
         <ui:VisualElement name="TabPanel" class="Tab-Panel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
             <ui:VisualElement name="WavesTab" class="Tab-Button Tab-Selected" style="flex-grow: 1;">
@@ -13,13 +14,13 @@
             <uie:PropertyField binding-path="_waves" label="Settings" name="WaveSettingsProperty" />
             <uie:PropertyField name="WaveCountProperty" label="Min Max Count" />
             <uie:PropertyField label="Min Max Length" name="WaveLengthProperty" />
-            <ui:Button text="Create" display-tooltip-when-elided="true" name="CreateWaveButton" />
-            <ui:Button text="Delete" display-tooltip-when-elided="true" name="DeleteWaveButton" style="display: none; visibility: visible;" />
+            <ui:Button text="Create" display-tooltip-when-elided="true" name="WaveCreateButton" />
+            <ui:Button text="Delete" display-tooltip-when-elided="true" name="WaveDeleteButton" style="display: none; visibility: visible;" />
         </ui:ScrollView>
         <ui:ScrollView name="AsteroidsContent" horizontal-scroller-visibility="Hidden" class="Tab-Content" style="visibility: hidden;">
             <uie:PropertyField binding-path="_asteroids" label="Settings" name="AsteroidGroupProperty" />
-            <ui:Button text="Create" display-tooltip-when-elided="true" name="CreateAsteroidGroupButton" />
-            <ui:Button text="Delete" display-tooltip-when-elided="true" name="DeleteAsteroidGroupButton" style="display: none;" />
+            <ui:Button text="Create" display-tooltip-when-elided="true" name="AsteroidGroupCreateButton" />
+            <ui:Button text="Delete" display-tooltip-when-elided="true" name="AsteroidGroupDeleteButton" style="display: none;" />
         </ui:ScrollView>
     </ui:VisualElement>
 </ui:UXML>

@@ -27,10 +27,10 @@
     border-bottom-width: 1px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    border-left-color: rgb(25, 25, 25);
-    border-right-color: rgb(25, 25, 25);
-    border-top-color: rgb(25, 25, 25);
-    border-bottom-color: rgb(25, 25, 25);
+    border-left-color: var(--unity-colors-default-border);
+    border-right-color: var(--unity-colors-default-border);
+    border-top-color: var(--unity-colors-default-border);
+    border-bottom-color: var(--unity-colors-default-border);
 }
 
 .Tab-Button:hover {
@@ -46,9 +46,9 @@
     border-left-width: 1px;
     border-right-width: 1px;
     border-top-width: 1px;
-    border-left-color: rgb(25, 25, 25);
-    border-right-color: rgb(25, 25, 25);
-    border-top-color: rgb(25, 25, 25);
+    border-left-color: var(--unity-colors-default-border);
+    border-right-color: var(--unity-colors-default-border);
+    border-top-color: var(--unity-colors-default-border);
     border-bottom-color: var(--unity-colors-button-background);
 }
 
@@ -65,10 +65,6 @@
 
 .Tab-Content {
     background-color: var(--unity-colors-button-background);
-    border-left-color: rgb(25, 25, 25);
-    border-right-color: rgb(25, 25, 25);
-    border-top-color: rgb(25, 25, 25);
-    border-bottom-color: rgb(25, 25, 25);
     border-left-width: 1px;
     border-right-width: 1px;
     border-bottom-width: 1px;
@@ -79,4 +75,8 @@
     padding-top: 5px;
     padding-bottom: 5px;
     overflow: hidden;
+    border-left-color: var(--unity-colors-default-border);
+    border-right-color: var(--unity-colors-default-border);
+    border-top-color: var(--unity-colors-default-border);
+    border-bottom-color: var(--unity-colors-default-border);
 }

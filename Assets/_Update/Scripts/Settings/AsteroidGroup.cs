@@ -9,7 +9,7 @@ namespace Magnuth
     /// </summary>
     [CreateAssetMenu(fileName = "Asteroid Group",
      menuName = "Magnuth/Asteroid Group", order = 2)]
-    public class AsteroidGroupSettings : ScriptableObject
+    public class AsteroidGroup : ScriptableObject
     {
         [SF] private Vector2Int _minMaxAsteroidCount = Vector2Int.one;
         [SF] private Vector2 _minMaxSpawnDelay = new Vector2(0.5f, 1);

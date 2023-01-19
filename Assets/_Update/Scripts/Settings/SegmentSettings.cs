@@ -12,7 +12,7 @@ namespace Magnuth
     public class SegmentSettings : ScriptableObject
     {
         [SF] private WaveSettings _waves = null;
-        [SF] private AsteroidGroupSettings _asteroids = null;
+        [SF] private AsteroidGroup _asteroids = null;
 
 // PROPERTIES
 

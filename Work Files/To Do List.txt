@@ -9,24 +9,50 @@
   Maybe implement a dirty flag check?
   
 
-# Create the segment interfaces
-- Fix so the delete button deletes the assigned asset
+# Create the asteroid settings interface
+- Add asset naming and options here as well
+  Just copy the uxml from the wave settings
+  
+  
+# Create the asteroid group interface
+- Add a button for creating a new asteroid setting
+  and parents it to the asteroid group asset and
+  also assigns it to the asteroid settings list
 
+- Fix so that the list displays the settings for
+  each asteroid inside the list
+
+
+# Create the segment interface
+- Create a content css file and add a small row space
+  5px and large row space 10px style so I can add some
+  spacing between rows
+  
+- Add a box with transparent background and a border around
+  it to box in / group the wave settings together so it reads
+  nicely 
+  
 - Display the wave and asteroid group settings underneath
   each object field button (add some extra spacing)
 
 - Have a yellow outline around the object property field
   that shows if it is not part of this segment?
-  
-
-# Create the wave settings and asteroid group interface 
-- Add string field that when changed renames its asset file
-
-- Add a button for unparenting it from the segment
-
-- Add a button for deleting the asset
 
 
-# Create an editor for the AndroidHandler that makes it easy
-  to add a new segment to the segment queue
+# Create an editor for the AsteroidHandler that makes it
+  easy to add a new segment to the segment queue?
   Will have to specify which folder to save it in?
+  
+  
+# Add undo record to creating and deleting segment assets?
+  https://forum.unity.com/threads/help-with-create-child-asset-undo.387708/
+
+- Undo.RegisterCreatedObjectUndo does not remove the asset 
+  from the segment but deletes the data in it
+
+- Undo.DestroyObjectImmediate does not refresh the inspector
+  nor assign it back onto the serialized property
+  
+- Add rename and delete asset undo as well
+  Undo.DestroyObjectImmediate does not add it back to its parent
+  but is just there selected but not in the inspector?

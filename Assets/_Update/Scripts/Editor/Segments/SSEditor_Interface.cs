@@ -47,19 +47,19 @@ namespace Magnuth {
         /// Initialises the asset fields and buttons
         /// </summary>
         private void InitAssetFieldsButtons(VisualElement root){
-            var wCreate = root.Query<Button>("CreateWaveButton").First();
-            var wDelete = root.Query<Button>("DeleteWaveButton").First();
+            var wCreate = root.Query<Button>("WaveCreateButton").First();
+            var wDelete = root.Query<Button>("WaveDeleteButton").First();
             var wField  = root.Query<PropertyField>("WaveSettingsProperty").First();
 
             SetAssetBehaviour<WaveSettings>(
                 wCreate, wDelete, wField, _waves
             );
 
-            var aCreate = root.Query<Button>("CreateAsteroidGroupButton").First();
-            var aDelete = root.Query<Button>("DeleteAsteroidGroupButton").First();
+            var aCreate = root.Query<Button>("AsteroidGroupCreateButton").First();
+            var aDelete = root.Query<Button>("AsteroidGroupDeleteButton").First();
             var aField  = root.Query<PropertyField>("AsteroidGroupProperty").First();
 
-            SetAssetBehaviour<AsteroidGroupSettings>(
+            SetAssetBehaviour<AsteroidGroup>(
                 aCreate, aDelete, aField, _asteroids
             );
         }
@@ -70,7 +70,7 @@ namespace Magnuth {
         private void SetAssetBehaviour<T>(Button create, Button delete,
         PropertyField field, SerializedProperty property) where T : ScriptableObject {
             create.clicked += () => { Create<T>(property); };
-            delete.clicked += () => { Delete<T>(property); };
+            delete.clicked += () => { Delete(property);    };
 
             field.RegisterValueChangeCallback(e => {
                 bool assigned = property.objectReferenceValue != null;

@@ -2,18 +2,14 @@ using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 using UnityEditor;
 using UnityEngine;
-using System.IO;
 
 namespace Magnuth
 {
-    [CustomEditor(typeof(SegmentSettings))]
-    public sealed partial class SegmentSettingsEditor : Editor 
+    [CustomEditor(typeof(WaveSettings))]
+    public sealed partial class WaveSettingsEditor : Editor
     {
-        private SerializedProperty 
-            _waves = null,
-            _asteroids = null;
-
-        private SegmentSettings _target = null;
+        private bool _subAsset = false;
+        private WaveSettings    _target = null;
         private VisualTreeAsset _vtree = null;
 
 // INITIALISATION
@@ -22,22 +18,25 @@ namespace Magnuth
         /// Initialises the inspector
         /// </summary>
         private void OnEnable(){
-            _target    = (SegmentSettings)target;
-            _asteroids = serializedObject.FindProperty("_asteroids");
-            _waves     = serializedObject.FindProperty("_waves");
-
-            _vtree = LoadTreeAsset();
+            _target   = (WaveSettings)target;
+            _subAsset = AssetDatabase.IsSubAsset(_target);
+            _vtree    = AssetUtility.LoadTreeAsset(this);
         }
 
         /// <summary>
         /// Initialises the inspector interface
         /// </summary>
         public override VisualElement CreateInspectorGUI(){
+            if (_vtree == null) return base.CreateInspectorGUI();
+
             var root = new VisualElement();
             _vtree.CloneTree(root);
 
-            InitTabs(root);
-            InitAssetFieldsButtons(root);
+            if (_subAsset){ 
+                InitAssetNaming(root);
+                InitAssetOptions(root);
+            
+            } else HideAssetPanels(root);
 
             return root;
         }
