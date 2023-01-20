@@ -10,13 +10,8 @@ namespace Magnuth {
         /// </summary>
         private void Create<T>(SerializedProperty property) where T : ScriptableObject {
             if (property.objectReferenceValue != null) return;
+            var asset = AssetUtility.CreateSubAsset<T>(_target);
 
-            var asset  = CreateInstance<T>();
-            asset.name = $"New {typeof(T).Name}";
-
-            AssetUtility.AddSubAsset(asset, _target);
-            
-            // note: has to be assigned after the asset has been created
             property.objectReferenceValue = asset;
             property.serializedObject.ApplyModifiedProperties();
             property.serializedObject.Update();
@@ -31,7 +26,7 @@ namespace Magnuth {
                 return;
 
             var obj = property.objectReferenceValue;
-            AssetUtility.TrashAsset((ScriptableObject)obj);
+            AssetUtility.TrashSubAsset((ScriptableObject)obj);
 
             property.objectReferenceValue = null;
             property.serializedObject.ApplyModifiedProperties();

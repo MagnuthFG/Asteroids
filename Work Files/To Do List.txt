@@ -15,28 +15,51 @@
   
   
 # Create the asteroid group interface
-- Add a button for creating a new asteroid setting
-  and parents it to the asteroid group asset and
-  also assigns it to the asteroid settings list
+- Fix so that I can delete button so the existing
+  asteroid settings get removed properly
 
 - Fix so that the list displays the settings for
-  each asteroid inside the list
+  each asteroid inside the list?
 
 
 # Create the segment interface
-- Create a content css file and add a small row space
-  5px and large row space 10px style so I can add some
-  spacing between rows
+- Update the tab buttons to stretch like the asteroid
+  settings buttons, so it adapts if I add more tabs
+  
+- Create the same list and button setup for the prefab
+  list as well (excluding create and delete buttons)
+  
+- Load the visual tree for the wave and group settings
+  in segment editor and clone the tree to display all of
+  the properties?
+  
+  Problem I don't get all of the scripted logic that comes
+  with it. To do that I need to separate that code into a
+  smaller class that I can just create in the editor class
   
 - Add a box with transparent background and a border around
   it to box in / group the wave settings together so it reads
-  nicely 
+  nicely?
   
 - Display the wave and asteroid group settings underneath
   each object field button (add some extra spacing)
 
 - Have a yellow outline around the object property field
   that shows if it is not part of this segment?
+
+
+# Write about how and why I structured this tool like this
+  in the readme file, and what problems and solutions I
+  had during the development and what I didn't have time to
+  implement before the deadline
+  
+  Also write that I had never utilised the new UI system
+  before so this was a great exercise to start learning it
+  and that I find it much more enjoyable then the old GUI
+  system
+  
+  Remember to include git hub link and add the unity package
+  file in a separate folder called ToolPackage or something?
 
 
 # Create an editor for the AsteroidHandler that makes it

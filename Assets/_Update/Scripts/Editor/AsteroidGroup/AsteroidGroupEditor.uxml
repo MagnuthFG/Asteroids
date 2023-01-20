@@ -13,10 +13,16 @@
         </ui:VisualElement>
         <ui:VisualElement name="AsteroidSettingsPanel" class="Content-Panel">
             <ui:Label tabindex="-1" text="Asteroid Settings:" display-tooltip-when-elided="true" class="Text-Header" />
-            <ui:ListView binding-path="_asteroidSettings" reorder-mode="Animated" reorderable="true" show-border="true" show-foldout-header="false" show-add-remove-footer="true" show-bound-collection-size="false" name="AsteroidSettingsList" class="RowSpace-Small" />
+            <ui:ListView binding-path="_asteroidSettings" reorder-mode="Animated" reorderable="true" show-border="true" show-foldout-header="false" show-add-remove-footer="false" show-bound-collection-size="false" name="AsteroidSettingsList" class="RowSpace-Small Content-List" />
+            <ui:VisualElement class="Content-Group">
+                <ui:Button text="Add" display-tooltip-when-elided="true" name="SettingsAddButton" class="RowSpace-Small Content-Stretch" />
+                <ui:Button text="Remove" display-tooltip-when-elided="true" name="SettingsRemoveButton" class="Content-Stretch" />
+                <ui:Button text="Create" display-tooltip-when-elided="true" name="SettingsCreateButton" class="Content-Stretch" />
+                <ui:Button text="Delete" display-tooltip-when-elided="true" name="SettingsDeleteButton" class="Content-Stretch" />
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="AsteroidPrefabPanel" class="Content-Panel">
-            <ui:Label tabindex="-1" text="Prefab Settings:" display-tooltip-when-elided="true" class="Text-Header" />
+            <ui:Label tabindex="-1" text="Asteroid Prefabs:" display-tooltip-when-elided="true" class="Text-Header" />
             <ui:ListView binding-path="_asteroidPrefabs" reorder-mode="Animated" reorderable="true" show-border="true" show-foldout-header="false" show-add-remove-footer="true" show-bound-collection-size="false" name="AsteroidPrefabsList" class="RowSpace-Small" />
         </ui:VisualElement>
         <ui:VisualElement name="AssetOptionsPanel" class="Content-Panel">

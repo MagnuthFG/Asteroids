@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8762034492643946741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ec66242da74ee44b44ec010f3e5ca7, type: 3}
+  m_Name: New AsteroidSettings
+  m_EditorClassIdentifier: 
+  _minMaxForce: {x: 2, y: 6}
+  _minMaxSize: {x: 0.25, y: 1}
+  _minMaxTorque: {x: 0.1, y: 0.5}
+  _minMaxAccuracy: {x: -3, y: 3}
+--- !u!114 &-5360749755391319918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ec66242da74ee44b44ec010f3e5ca7, type: 3}
+  m_Name: New AsteroidSettings
+  m_EditorClassIdentifier: 
+  _minMaxForce: {x: 2, y: 6}
+  _minMaxSize: {x: 0.25, y: 1}
+  _minMaxTorque: {x: 0.1, y: 0.5}
+  _minMaxAccuracy: {x: -3, y: 3}
 --- !u!114 &-4445055338788429356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,6 +60,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waves: {fileID: -4445055338788429356}
   _asteroids: {fileID: 7930036518820896955}
+--- !u!114 &6406476735554175531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ec66242da74ee44b44ec010f3e5ca7, type: 3}
+  m_Name: New AsteroidSettings
+  m_EditorClassIdentifier: 
+  _minMaxForce: {x: 2, y: 6}
+  _minMaxSize: {x: 0.25, y: 1}
+  _minMaxTorque: {x: 0.1, y: 0.5}
+  _minMaxAccuracy: {x: -3, y: 3}
 --- !u!114 &7930036518820896955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,5 +90,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minMaxAsteroidCount: {x: 1, y: 1}
   _minMaxSpawnDelay: {x: 0.5, y: 1}
-  _asteroidSettings: []
+  _asteroidSettings:
+  - {fileID: -5360749755391319918}
   _asteroidPrefabs: []

@@ -2,6 +2,7 @@ using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 using UnityEditor;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace Magnuth
 {
@@ -28,7 +29,18 @@ namespace Magnuth
 // ASSET HANDLING
 
         /// <summary>
-        /// Adds this scriptable object to the parrent asset
+        /// Creates a new scriptable object sub asset
+        /// </summary>
+        public static T CreateSubAsset<T>(ScriptableObject parent) where T : ScriptableObject {
+            var asset = ScriptableObject.CreateInstance<T>();
+            asset.name = $"New {typeof(T).Name}";
+
+            AddSubAsset(asset, parent);
+            return asset;
+        }
+
+        /// <summary>
+        /// Adds this scriptable object to the parent asset
         /// </summary>
         public static void AddSubAsset(ScriptableObject asset, ScriptableObject parent){
             AssetDatabase.AddObjectToAsset(asset, parent);
@@ -57,9 +69,15 @@ namespace Magnuth
         /// <summary>
         /// Moves this scriptable object to the OS trashbin
         /// </summary>
-        public static void TrashAsset(ScriptableObject asset){
+        public static void TrashSubAsset(ScriptableObject asset){
             AssetDatabase.RemoveObjectFromAsset(asset);
+            TrashAsset(asset);
+        }
 
+        /// <summary>
+        /// Moves this scriptable object to the OS trashbin
+        /// </summary>
+        public static void TrashAsset(ScriptableObject asset){
             var path = GetAssetPath(asset);
             AssetDatabase.MoveAssetToTrash(path);
 

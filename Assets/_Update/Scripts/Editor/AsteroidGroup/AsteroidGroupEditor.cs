@@ -8,9 +8,13 @@ namespace Magnuth
     [CustomEditor(typeof(AsteroidGroup))]
     public sealed partial class AsteroidGroupEditor : Editor
     {
+        private SerializedProperty
+            _settings = null,
+            _prefabs  = null;
+
         private bool _subAsset = false;
         private AsteroidGroup   _target = null;
-        private VisualTreeAsset _vtree = null;
+        private VisualTreeAsset _vtree  = null;
 
 // INITIALISATION
 
@@ -21,6 +25,9 @@ namespace Magnuth
             _target   = (AsteroidGroup)target;
             _subAsset = AssetDatabase.IsSubAsset(_target);
             _vtree    = AssetUtility.LoadTreeAsset(this);
+
+            _settings = serializedObject.FindProperty("_asteroidSettings");
+            _prefabs  = serializedObject.FindProperty("_asteroidPrefabs");
         }
 
         /// <summary>
@@ -38,6 +45,7 @@ namespace Magnuth
             
             } else HideAssetPanels(root);
 
+            InitSettingsButtons(root);
             return root;
         }
     }

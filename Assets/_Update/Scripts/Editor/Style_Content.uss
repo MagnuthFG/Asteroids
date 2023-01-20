@@ -10,7 +10,6 @@
 }
 
 .Content-Panel {
-    background-color: var(--unity-colors-button-background);
     border-left-width: 1px;
     border-right-width: 1px;
     border-top-width: 1px;
@@ -28,4 +27,18 @@
     border-right-color: var(--unity-colors-default-border);
     border-top-color: var(--unity-colors-default-border);
     border-bottom-color: var(--unity-colors-default-border);
+    background-color: var(--unity-colors-button-background);
+}
+
+.Content-Group {
+    flex-direction: row;
+    align-items: auto;
+}
+
+.Content-Stretch {
+    flex-grow: 1;
+}
+
+.Content-List {
+    background-color: var(--unity-colors-headerbar_column-background-hover);
 }

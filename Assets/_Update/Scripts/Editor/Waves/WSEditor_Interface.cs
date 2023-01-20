@@ -34,7 +34,7 @@ namespace Magnuth {
             };
 
             dButton.clicked += () => {
-                AssetUtility.TrashAsset(_target);
+                AssetUtility.TrashSubAsset(_target);
             };
         }
 
