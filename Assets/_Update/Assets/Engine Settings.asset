@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ce52cc2737d3a6489265ffa3ddda0f7, type: 3}
-  m_Name: A-Wave Short Slow 1
+  m_Script: {fileID: 11500000, guid: 7c4851a8573fc764fa193cde4d2a78ca, type: 3}
+  m_Name: Engine Settings
   m_EditorClassIdentifier: 
-  _minMaxWaveCount: {x: 1, y: 2}
-  _minMaxWaveLength: {x: 8, y: 10}
+  _throttlePower: 2.76
+  _rotationPower: 5.85

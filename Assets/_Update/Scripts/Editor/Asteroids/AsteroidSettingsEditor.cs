@@ -5,16 +5,12 @@ using UnityEngine;
 
 namespace Magnuth
 {
-    [CustomEditor(typeof(AsteroidGroup))]
-    public sealed partial class AsteroidGroupEditor : Editor
+    [CustomEditor(typeof(AsteroidSettings))]
+    public sealed partial class AsteroidSettingsEditor : Editor
     {
-        private SerializedProperty
-            _settings = null,
-            _prefabs  = null;
-
         private bool _subAsset = false;
-        private AsteroidGroup   _target = null;
-        private VisualTreeAsset _vtree  = null;
+        private AsteroidSettings _target = null;
+        private VisualTreeAsset  _vtree  = null;
 
 // INITIALISATION
 
@@ -22,12 +18,9 @@ namespace Magnuth
         /// Initialises the inspector
         /// </summary>
         private void OnEnable(){
-            _target   = (AsteroidGroup)target;
+            _target   = (AsteroidSettings)target;
             _subAsset = AssetDatabase.IsSubAsset(_target);
             _vtree    = AssetUtility.LoadTreeAsset(this);
-
-            _settings = serializedObject.FindProperty("_asteroidSettings");
-            _prefabs  = serializedObject.FindProperty("_asteroidPrefabs");
         }
 
         /// <summary>
@@ -45,7 +38,6 @@ namespace Magnuth
             
             } else HideAssetPanels(root);
 
-            InitSettingsButtons(root);
             return root;
         }
     }

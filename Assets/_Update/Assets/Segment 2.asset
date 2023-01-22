@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3587139057441297756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ec66242da74ee44b44ec010f3e5ca7, type: 3}
+  m_Name: Asteroid Small Fast 1
+  m_EditorClassIdentifier: 
+  _minMaxForce: {x: 2, y: 4}
+  _minMaxSize: {x: 0.25, y: 0.5}
+  _minMaxTorque: {x: 2, y: 4}
+  _minMaxAccuracy: {x: 3, y: 4}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,5 +28,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca39654208d9874f982620add895da4, type: 3}
   m_Name: Segment 2
   m_EditorClassIdentifier: 
-  _waves: {fileID: 11400000, guid: 14ece784679f8e34ca8fe7fa49fb25c5, type: 2}
-  _asteroids: {fileID: 11400000, guid: 9068f392c88f5bd4290ba7548b7c3e2b, type: 2}
+  _waves: {fileID: 882945228439232470, guid: 349da30a6ddf2ec43b9fdd2e509b2977, type: 2}
+  _asteroids: {fileID: 2275118154399024851}
+--- !u!114 &2275118154399024851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25c9cdedc7d61ed42862872bb43c934a, type: 3}
+  m_Name: Group SM Fast 1
+  m_EditorClassIdentifier: 
+  _minMaxAsteroidCount: {x: 3, y: 6}
+  _minMaxSpawnDelay: {x: 0.75, y: 1.25}
+  _asteroidSettings:
+  - {fileID: 7719057888832809362}
+  - {fileID: -3587139057441297756}
+  _asteroidPrefabs:
+  - {fileID: 1784223117350305363, guid: 01106835b2bc0e347a3bb06b7544b51a, type: 3}
+--- !u!114 &7719057888832809362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ec66242da74ee44b44ec010f3e5ca7, type: 3}
+  m_Name: Asteroid Medium Fast 1
+  m_EditorClassIdentifier: 
+  _minMaxForce: {x: 2, y: 4}
+  _minMaxSize: {x: 0.5, y: 0.75}
+  _minMaxTorque: {x: 2, y: 4}
+  _minMaxAccuracy: {x: 2, y: 3}

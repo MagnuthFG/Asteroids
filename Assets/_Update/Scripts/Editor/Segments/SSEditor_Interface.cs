@@ -8,7 +8,7 @@ namespace Magnuth {
     {
         private const string TAB_SELECTED = "Tab-Selected";
 
-// TABS INTERFACE
+// TABS
 
         /// <summary>
         /// Initialises the tab buttons and elements
@@ -41,12 +41,12 @@ namespace Magnuth {
             }));
         }
 
-// ASSETS INTERFACE
+// ASSETS
 
         /// <summary>
         /// Initialises the asset fields and buttons
         /// </summary>
-        private void InitAssetFieldsButtons(VisualElement root){
+        private void InitAssetFields(VisualElement root){
             var wCreate = root.Query<Button>("WaveCreateButton").First();
             var wDelete = root.Query<Button>("WaveDeleteButton").First();
             var wField  = root.Query<PropertyField>("WaveSettingsProperty").First();

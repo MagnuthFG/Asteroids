@@ -1,17 +1,22 @@
-using UnityEditor.VersionControl;
+using SF = UnityEngine.SerializeField;
 using UnityEngine;
 using Variables;
+using Magnuth;
 
 namespace Ship
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class Engine : MonoBehaviour
     {
-        [SerializeField] private FloatVariable _throttlePower;
-        [SerializeField] private FloatVariable _rotationPower;
-        
-        [SerializeField] private float _throttlePowerSimple;
-        [SerializeField] private float _rotationPowerSimple;
+        #region OLD CODE
+        //[SerializeField] private FloatVariable _throttlePower;
+        //[SerializeField] private FloatVariable _rotationPower;
+
+        //[SerializeField] private float _throttlePowerSimple;
+        //[SerializeField] private float _rotationPowerSimple;
+        #endregion
+
+        [SF] private EngineSettings _settings = null;
 
         private Rigidbody2D _rigidbody;
         
@@ -39,17 +44,20 @@ namespace Ship
     
         public void Throttle()
         {
-            _rigidbody.AddForce(transform.up * _throttlePower.Value, ForceMode2D.Force);
+            //_rigidbody.AddForce(transform.up * _throttlePower.Value, ForceMode2D.Force);
+            _rigidbody.AddForce(transform.up * _settings.ThrottlePower, ForceMode2D.Force);
         }
 
         public void SteerLeft()
         {
-            _rigidbody.AddTorque(_rotationPower.Value, ForceMode2D.Force);
+            //_rigidbody.AddTorque(_rotationPower.Value, ForceMode2D.Force);
+            _rigidbody.AddTorque(_settings.RotationPower, ForceMode2D.Force);
         }
 
         public void SteerRight()
         {
-            _rigidbody.AddTorque(-_rotationPower.Value, ForceMode2D.Force);
+            //_rigidbody.AddTorque(-_rotationPower.Value, ForceMode2D.Force);
+            _rigidbody.AddTorque(-_settings.RotationPower, ForceMode2D.Force);
         }
     }
 }

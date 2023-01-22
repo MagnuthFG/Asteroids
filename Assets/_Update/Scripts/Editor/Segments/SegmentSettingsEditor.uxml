@@ -2,11 +2,11 @@
     <Style src="project://database/Assets/_Update/Scripts/Editor/Style_Tabs.uss?fileID=7433441132597879392&amp;guid=7b66a399357cc2e40b7a825ac49360e6&amp;type=3#Style_Tabs" />
     <Style src="project://database/Assets/_Update/Scripts/Editor/Style_Content.uss?fileID=7433441132597879392&amp;guid=836e4f3bb448c9545aa3b3668f557c64&amp;type=3#Style_Content" />
     <ui:VisualElement style="background-color: rgba(0, 0, 0, 0);">
-        <ui:VisualElement name="TabPanel" class="Tab-Panel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-            <ui:VisualElement name="WavesTab" class="Tab-Button Tab-Selected" style="flex-grow: 1;">
+        <ui:VisualElement name="TabPanel" class="Tab-Panel RowSpace-Small Content-Group" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <ui:VisualElement name="WavesTab" class="Tab-Button Tab-Selected Content-Stretch" style="flex-grow: 1;">
                 <ui:Label tabindex="-1" text="Waves" display-tooltip-when-elided="true" />
             </ui:VisualElement>
-            <ui:VisualElement name="AsteroidsTab" class="Tab-Button" style="flex-grow: 1;">
+            <ui:VisualElement name="AsteroidsTab" class="Tab-Button Content-Stretch" style="flex-grow: 1;">
                 <ui:Label tabindex="-1" text="Asteroids" display-tooltip-when-elided="true" />
             </ui:VisualElement>
         </ui:VisualElement>
@@ -14,8 +14,8 @@
             <uie:PropertyField binding-path="_waves" label="Settings" name="WaveSettingsProperty" />
             <uie:PropertyField name="WaveCountProperty" label="Min Max Count" />
             <uie:PropertyField label="Min Max Length" name="WaveLengthProperty" />
-            <ui:Button text="Create" display-tooltip-when-elided="true" name="WaveCreateButton" />
-            <ui:Button text="Delete" display-tooltip-when-elided="true" name="WaveDeleteButton" style="display: none; visibility: visible;" />
+            <ui:Button text="Create" display-tooltip-when-elided="true" name="WaveCreateButton" class="RowSpace-Small" />
+            <ui:Button text="Delete" display-tooltip-when-elided="true" name="WaveDeleteButton" class="RowSpace-Small" style="display: none; visibility: visible;" />
         </ui:ScrollView>
         <ui:ScrollView name="AsteroidsContent" horizontal-scroller-visibility="Hidden" class="Tab-Content" style="visibility: hidden;">
             <uie:PropertyField binding-path="_asteroids" label="Settings" name="AsteroidGroupProperty" />

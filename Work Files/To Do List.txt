@@ -1,67 +1,37 @@
 ===============================================================
 // TO DO LIST
 ===============================================================
-
 # FIX BUGS
 - sQueue throws an ObjectDisposedException, but only
   sometimes and when its drawn in the inspector 
   Have to prevent it from serializing while updating
   Maybe implement a dirty flag check?
   
-
-# Create the asteroid settings interface
-- Add asset naming and options here as well
-  Just copy the uxml from the wave settings
   
-  
-# Create the asteroid group interface
-- Fix so that I can delete button so the existing
-  asteroid settings get removed properly
-
-- Fix so that the list displays the settings for
-  each asteroid inside the list?
-
-
-# Create the segment interface
-- Update the tab buttons to stretch like the asteroid
-  settings buttons, so it adapts if I add more tabs
-  
-- Create the same list and button setup for the prefab
-  list as well (excluding create and delete buttons)
+# Improve the interfaces
+- If possible, have a yellow outline around the object
+  property field that shows if it is not part of this segment?
   
 - Load the visual tree for the wave and group settings
-  in segment editor and clone the tree to display all of
-  the properties?
+  in segment editor and the asteroid settings in the
+  group editor and clone the tree to display all of the
+  properties?
   
   Problem I don't get all of the scripted logic that comes
   with it. To do that I need to separate that code into a
   smaller class that I can just create in the editor class
   
-- Add a box with transparent background and a border around
-  it to box in / group the wave settings together so it reads
-  nicely?
+  Also I have to add a show collapse button so I don't draw
+  all of them and clutter up the interface
   
-- Display the wave and asteroid group settings underneath
-  each object field button (add some extra spacing)
-
-- Have a yellow outline around the object property field
-  that shows if it is not part of this segment?
-
-
-# Write about how and why I structured this tool like this
-  in the readme file, and what problems and solutions I
-  had during the development and what I didn't have time to
-  implement before the deadline
+  Also I have to hide the asset settings and options panels
+  so they aren't drawn
   
-  Also write that I had never utilised the new UI system
-  before so this was a great exercise to start learning it
-  and that I find it much more enjoyable then the old GUI
-  system
+- Add a box with darker background and a border rather then
+  the default content background on each element so it reads
+  better?
+
   
-  Remember to include git hub link and add the unity package
-  file in a separate folder called ToolPackage or something?
-
-
 # Create an editor for the AsteroidHandler that makes it
   easy to add a new segment to the segment queue?
   Will have to specify which folder to save it in?

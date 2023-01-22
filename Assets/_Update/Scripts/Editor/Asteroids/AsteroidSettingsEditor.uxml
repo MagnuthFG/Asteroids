@@ -8,8 +8,10 @@
         </ui:VisualElement>
         <ui:VisualElement name="AssetSettingsPanel" class="Content-Panel">
             <ui:Label tabindex="-1" text="Wave Settings:" display-tooltip-when-elided="true" class="Text-Header" />
-            <uie:PropertyField binding-path="_minMaxWaveCount" name="MinMaxCountProperty" label="Min Max Count" />
-            <uie:PropertyField binding-path="_minMaxWaveLength" name="MinMaxLengthProperty" label="Min Max Length" />
+            <uie:PropertyField binding-path="_minMaxForce" name="MinMaxForceProperty" label="Min Max Force" />
+            <uie:PropertyField binding-path="_minMaxSize" name="MinMaxSizeProperty" label="Min Max Size" />
+            <uie:PropertyField binding-path="_minMaxTorque" name="MinMaxTorqueProperty" label="Min Max Torque" />
+            <uie:PropertyField binding-path="_minMaxAccuracy" name="MinMaxAccuracyProperty" label="Min Max Accuracy" />
         </ui:VisualElement>
         <ui:VisualElement name="AssetOptionsPanel" class="Content-Panel">
             <ui:Label tabindex="-1" text="Asset Options:" display-tooltip-when-elided="true" class="Text-Header" />

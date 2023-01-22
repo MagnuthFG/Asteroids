@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 
 namespace Magnuth {
-    public sealed partial class WaveSettingsEditor : Editor
+    public sealed partial class AsteroidSettingsEditor : Editor
     {
         /// <summary>
         /// Initialises the asset name field and buttons
@@ -11,7 +11,7 @@ namespace Magnuth {
         private void InitAssetNaming(VisualElement root){
             var field  = root.Query<TextField>("AssetNameField").First();
             var button = root.Query<Button>("AssetRenameButton").First();
-            
+
             field.value = _target.name;
 
             button.clicked += () => {

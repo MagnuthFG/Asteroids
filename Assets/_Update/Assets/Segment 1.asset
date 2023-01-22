@@ -12,5 +12,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca39654208d9874f982620add895da4, type: 3}
   m_Name: Segment 1
   m_EditorClassIdentifier: 
-  _waves: {fileID: 11400000, guid: 14ece784679f8e34ca8fe7fa49fb25c5, type: 2}
-  _asteroids: {fileID: 11400000, guid: 299ca44642f91034b94e96b2415fe6f4, type: 2}
+  _waves: {fileID: 882945228439232470}
+  _asteroids: {fileID: 3638993276770757678}
+--- !u!114 &882945228439232470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce52cc2737d3a6489265ffa3ddda0f7, type: 3}
+  m_Name: Wave Short Slow 1
+  m_EditorClassIdentifier: 
+  _minMaxWaveCount: {x: 2, y: 3}
+  _minMaxWaveLength: {x: 8, y: 10}
+--- !u!114 &1682897851373578455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ec66242da74ee44b44ec010f3e5ca7, type: 3}
+  m_Name: Asteroid Small Slow 1
+  m_EditorClassIdentifier: 
+  _minMaxForce: {x: 2, y: 4}
+  _minMaxSize: {x: 0.25, y: 0.5}
+  _minMaxTorque: {x: 1, y: 3}
+  _minMaxAccuracy: {x: 2, y: 3}
+--- !u!114 &2911608186771118222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ec66242da74ee44b44ec010f3e5ca7, type: 3}
+  m_Name: Asteroid Big Slow 1
+  m_EditorClassIdentifier: 
+  _minMaxForce: {x: 2, y: 4}
+  _minMaxSize: {x: 0.75, y: 1}
+  _minMaxTorque: {x: 1, y: 3}
+  _minMaxAccuracy: {x: 0, y: 1}
+--- !u!114 &3638993276770757678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25c9cdedc7d61ed42862872bb43c934a, type: 3}
+  m_Name: Group SMB Slow 1
+  m_EditorClassIdentifier: 
+  _minMaxAsteroidCount: {x: 5, y: 8}
+  _minMaxSpawnDelay: {x: 0.5, y: 1}
+  _asteroidSettings:
+  - {fileID: 2911608186771118222}
+  - {fileID: 7323395331021337341}
+  - {fileID: 1682897851373578455}
+  _asteroidPrefabs:
+  - {fileID: 1784223117350305363, guid: 01106835b2bc0e347a3bb06b7544b51a, type: 3}
+--- !u!114 &7323395331021337341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ec66242da74ee44b44ec010f3e5ca7, type: 3}
+  m_Name: Asteroid Medium Slow 1
+  m_EditorClassIdentifier: 
+  _minMaxForce: {x: 2, y: 4}
+  _minMaxSize: {x: 0.5, y: 0.75}
+  _minMaxTorque: {x: 1, y: 3}
+  _minMaxAccuracy: {x: 1, y: 2}

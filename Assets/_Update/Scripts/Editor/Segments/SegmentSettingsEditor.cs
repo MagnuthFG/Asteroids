@@ -36,7 +36,7 @@ namespace Magnuth
             _vtree.CloneTree(root);
 
             InitTabs(root);
-            InitAssetFieldsButtons(root);
+            InitAssetFields(root);
 
             return root;
         }

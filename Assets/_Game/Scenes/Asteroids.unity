@@ -280,9 +280,9 @@ MonoBehaviour:
   _spawnRadius: 15
   _segments:
     _items:
-    - {fileID: 11400000, guid: bca3b83bdf6d597489093cd97fe0d30d, type: 2}
-    - {fileID: 11400000, guid: 9a4ae92cd65080b42b076caff78f3611, type: 2}
-    - {fileID: 11400000, guid: 48ea13de807816e4fbaa51955eafca57, type: 2}
+    - {fileID: 11400000, guid: 349da30a6ddf2ec43b9fdd2e509b2977, type: 2}
+    - {fileID: 11400000, guid: d0f24bc37b6203c4e8678b46b7765a0d, type: 2}
+    - {fileID: 11400000, guid: a1143eac45a3525418dd0ec98b069562, type: 2}
 --- !u!1001 &2970632032457142644
 PrefabInstance:
   m_ObjectHideFlags: 0

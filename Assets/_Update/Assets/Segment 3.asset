@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2101139896984490923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce52cc2737d3a6489265ffa3ddda0f7, type: 3}
+  m_Name: Wave Short Fast 1
+  m_EditorClassIdentifier: 
+  _minMaxWaveCount: {x: 1, y: 2}
+  _minMaxWaveLength: {x: 5, y: 8}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,5 +26,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca39654208d9874f982620add895da4, type: 3}
   m_Name: Segment 3
   m_EditorClassIdentifier: 
-  _waves: {fileID: 11400000, guid: 800f3d545294ee04f913ad0e38536910, type: 2}
-  _asteroids: {fileID: 11400000, guid: 9068f392c88f5bd4290ba7548b7c3e2b, type: 2}
+  _waves: {fileID: -2101139896984490923}
+  _asteroids: {fileID: 2275118154399024851, guid: d0f24bc37b6203c4e8678b46b7765a0d, type: 2}
